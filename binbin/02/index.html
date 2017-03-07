@@ -48,28 +48,25 @@ var aqiData = [
       arr.push(aqiData[i]);
     }
   }
-  //2.取出数字，并降序，
-var array=[];
-  for(var j=0;j<arr.length;j++){
-    array.push(arr[j][1]);
-    array.sort(function(a,b){console.log(a-b);
-    })
-    //3.显示在页面
-    var a=array.sort();
-    var list="";
-    for(var r=0;r<a.length;r++){
-      list+="<li>第"+parseInt(r+1)+"名："+a[r]+"</li>";
+  //2.使用冒泡法排序
+  function bubbleSort(array){
+    for(var k=0;k<array.length;k++){
+     for(var r=0;r<array.length;r++){
+       if(array[k][1]>array[r][1]){
+         var a=array[r];
+         array[r]=array[k];
+         array[k]=a;
+       }
+     }
     }
+    return array
   }
-
+  //3.显示到页面
+  var list="";
+  for(var j=0;j<bubbleSort(arr).length;j++){
+    list+="<li>第"+(j+1)+"名："+ arr[j][0]+":"+arr[j][1]+"</li>";
+  }
   document.getElementById("aqi-list").innerHTML=list;
- /* */
-
-  /*var list="";
-for(var j=0;j<arr.length;j++){
- list+="<li>数据"+parseInt(j+1)+" : "+arr[j]+"</li>";
-}
-  document.getElementById("aqi-list").innerHTML=list;*/
 })();
 
 </script>
