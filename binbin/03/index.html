@@ -1,0 +1,61 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+</head>
+<body>
+
+<ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+</ul>
+
+<ul id="resort">
+    <!--
+       <li>第一名：北京空气质量：<b>90</b></li>
+       <li>第二名：北京空气质量：<b>90</b></li>
+       <li>第三名：北京空气质量：<b>90</b></li>
+        -->
+
+</ul>
+
+<button id="sort-btn">排序</button>
+
+<script type="text/javascript">
+
+var data=[["北京空气质量",90],["上海空气质量",70],["天津空气质量",80],["广州空气质量",50],["深圳空气质量",40],["福州空气质量",30],["成都空气质量",90]];
+
+     function sortBubble(data){
+         for(var i=0;i<data.length;i++){
+            for(var j=0;j<data.length;j++){
+              if(data[i][1]>data[j][1]){
+                  var a=data[j];
+                  data[j]=data[i];
+                  data[i]=a;
+
+              }
+            }
+         }
+         return data;
+     }
+    var num=["第一名","第二名","第三名","第四名","第五名","第六名","第七名"];
+    var list="";
+    for(var k=0;k<sortBubble(data).length;k++){
+        list+="<li>"+num[k]+ ":" +data[k][0]+ ":" +"<b>"+data[k][1]+"</b>"+"</li>"
+    }
+var obt=document.getElementById("sort-btn");
+obt.onclick=function(){
+    var os=document.getElementById("resort");
+    os.innerHTML=list;
+  os.style.color="#666";
+}
+
+</script>
+</body>
+</html>
