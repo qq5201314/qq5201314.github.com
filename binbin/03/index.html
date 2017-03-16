@@ -34,7 +34,7 @@ var data=[["北京空气质量",90],["上海空气质量",70],["天津空气质�
      function sortBubble(data){
          for(var i=0;i<data.length;i++){
             for(var j=0;j<data.length;j++){
-              if(data[i][1]>data[j][1]){
+              if(data[i][1]<data[j][1]){
                   var a=data[j];
                   data[j]=data[i];
                   data[i]=a;
