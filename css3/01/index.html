@@ -1,21 +1,43 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title></title>
     <style>
-        .container{position:relative;background:#333;width:399px;height:199px;}
-        .wrap{position: absolute;top:0;left:0;text-align:center;width:399px;height:199px;}
-        .box{width:340px;height:126px;text-align: center;margin:20px auto;padding-top:21px;border:5px solid #fff}
+        *{margin:0;padding:0;box-sizing: border-box;}
+        .m{position: absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
+        /*图片模糊*/
+        img{transition:filter 0.5s;width:399px;height:199px;}
+        .container:hover img{filter:blur(2px)}
+        /*边框*/
+        #bk1{width:350px;height:0;transition:height 1s;}
+        #bk2{height:160px;width:0;transition:width 1s;}
+        .container:hover #bk1{border-left:3px solid whitesmoke;border-right:3px solid whitesmoke;height:160px;}
+        .container:hover #bk2{border-top:3px solid whitesmoke;border-bottom:3px solid whitesmoke;width:350px;}
+        /*文字*/
+        #txt{width:350px;text-align: center;font-size:25px;line-height:40px;height:160px;padding-top:65px;transition:padding 0.5s}
+        .container:hover #txt{padding-top:45px;}
+        #txt h3{font-weight:normal;font-size:25px;}
+        h3,a{color:transparent;}
+        #txt:hover h3,#txt:hover a{background: linear-gradient(to right,#6EA4C7 10%,#EBC096 30%,#D91A42 50%,#FFD304 70%,#6CC93E 90%,#ED892E 100%);
+            background-clip: text;
+            background-size:200% 100%;
+            animation: mylogo 1s linear infinite;
+        }
+        @keyframes mylogo {
+            0%{background-position: 0 0;}
+            100%{background-position: -100% 0;}
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="01.jpg" alt=""/>
-        <div class="wrap">
-            <div class="box">
-                <h3>欢迎参加百度学院</h3>
-                <a href="#">点击报名</a>
-            </div>
+        <img src="img/01.jpg" alt="" class="m"/>
+        <div id="bk1" class="m"></div>
+        <div id="bk2" class="m"></div>
+        <div id="txt" class="m">
+            <h3>欢迎光临小栈</h3>
+            <a href="#">点击进入</a>
         </div>
     </div>
 </body>
